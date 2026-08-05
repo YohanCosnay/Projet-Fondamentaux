@@ -24,6 +24,9 @@ void action_saisir(float temperatures[], int *nb_releves){
 		if (scanf("%d", nb_releves) != 1)
                 {
                         printf("Erreur : veuillez saisir un nombre.\n");
+			/* Vide le reste de la ligne */
+                	while (getchar() != '\n');
+			continue;
 		}
 
 		/* Vide le reste de la ligne */
