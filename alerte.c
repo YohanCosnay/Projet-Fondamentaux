@@ -6,7 +6,7 @@ void analyser_alertes(float *tab, int n, Config *cfg){
 
     int IsFine = 1;
 
-    printf("===== Rapport d'alerte =====\n\n");
+    printf("===== Rapport d'alerte =====\n");
 
     for(int i = 0; i < n; i++){
         if(tab[i] >= cfg->seuil_chaud){
