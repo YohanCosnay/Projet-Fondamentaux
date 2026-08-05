@@ -6,5 +6,6 @@
 #define TEMP_MAX 60.0
 
 void saisir_releves(float temperatures[], int *nb_releves);
+void afficher_releves(float temperatures[], int nb_releves);
 
 #endif
