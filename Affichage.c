@@ -1,4 +1,4 @@
-#include "Affichage.h"
+#include "affichage.h"
 #include "stats.h"
 
 void Menu(float *tab, int n, Config *cfg){
