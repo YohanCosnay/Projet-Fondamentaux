@@ -12,7 +12,7 @@ void Menu(float *tab, int n, Config *cfg){
     /*  aux demandes de l'utilisateur   */
     /*                                  */
     /************************************/
-    int choix = 1;
+    int choix = 0;
 
     do{
         printf("\t  =========== MENU ===========\n");
@@ -23,14 +23,26 @@ void Menu(float *tab, int n, Config *cfg){
         printf("\t| 5. Afficher l'histogramme\n");
         printf("\t| 0. Quitter\n");
         printf("\t  ============================\n");
-        printf("\tChoix : ");
-        scanf("%d", &choix);
+
+        do {
+            printf("Votre choix : ");
+
+            // Vérifie si l'entrée est un nombre entier
+            if (scanf("%d", &choix) != 1) {
+                printf("Erreur : Entree invalide. Réessayez.\n");
+                // Nettoie le buffer pour éviter une boucle infinie
+                while (getchar() != '\n');
+                continue;
+            }
+
+        } while (choix < 0 || choix > 5); // Répète tant que le nombre n'est pas valide
 
         switch (choix)
         {
         case 1:
             printf("===== Saisir releve =====\n");
             action_saisir(tab, &n);
+            afficher_releves(tab, n);
             break;
 
         case 2:
@@ -51,7 +63,6 @@ void Menu(float *tab, int n, Config *cfg){
             break;
         
         default:
-            choix = 2; // By default, we juste show the stats
             break;
         }
 
@@ -80,8 +91,8 @@ void Afficher_Histo(float *tab, int n){
     for(int i = HISTO_HAUTEUR; i > 0; i--){
         for (int j = 0; j < n; j++)
         {
-            if(NormalizedValue[j] > i) printf(" * ");
-            else printf("   ");
+            if(NormalizedValue[j] > i) printf("  * ");
+            else printf("    ");
         }
         printf("\n");
     }
@@ -89,7 +100,7 @@ void Afficher_Histo(float *tab, int n){
     // Trace le separateur
     for (int j = 0; j < n; j++)
     {
-        printf("---");
+        printf("----");
     }
     
     printf("\n");
