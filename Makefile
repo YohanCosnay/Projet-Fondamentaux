@@ -9,7 +9,7 @@ DEPS    = $(OBJS:.o=.d)
 -include $(DEPS)
 
 SRCS = $(wildcard $(SRCDIR)/*.c)
-OBJS = $(SRCS:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
+OBJS = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
 
 all: $(TARGET)
 
