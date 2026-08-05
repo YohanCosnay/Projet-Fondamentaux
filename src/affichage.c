@@ -12,7 +12,7 @@ void Menu(float *tab, int n, Config *cfg){
     /*  aux demandes de l'utilisateur   */
     /*                                  */
     /************************************/
-    int choix = 1;
+    int choix = -1;
 
     do{
         printf("\t  =========== MENU ===========\n");
@@ -37,6 +37,9 @@ void Menu(float *tab, int n, Config *cfg){
             }
 
         } while (choix < 0 || choix > 5); // Répète tant que le nombre n'est pas valide
+
+        // Nettoie le buffer pour éviter une boucle infinie
+        while (getchar() != '\n');
 
         switch (choix)
         {
