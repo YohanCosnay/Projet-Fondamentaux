@@ -8,7 +8,7 @@ CFLAGS += -MMD -MP
 DEPS    = $(OBJS:.o=.d)
 -include $(DEPS)
 
-SRCS = $(SRCDIR)/main.c $(SRCDIR)/alerte.c $(SRCDIR)/stats.c $(SRCDIR)/saisie.c $(SRCDIR)/affichage.c
+SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
 
 all: $(TARGET)
