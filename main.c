@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "temperature_input.h"
 #include "alerte.h"
+#include "exo2.h"
 
 int main(void) {
     /* Tableau qui stockera les températures */
@@ -12,6 +13,17 @@ int main(void) {
 
     /* Appel de la fonction de saisie */
     saisir_releves(temperatures, &nb_releves);
+
+    // Calcul des stats
+    int idx_min, idx_max;
+
+    float moyenne = calculer_moyenne(temperatures, nb_releves);
+    float min = trouver_minimum(temperatures, nb_releves, &idx_min);
+    float max = trouver_maximum(temperatures, nb_releves, &idx_max);
+    float amplitude = calculer_amplitude(temperatures, nb_releves);
+
+    // Affichage des stats
+    afficher_valeurs_exo2(moyenne, min, max, amplitude, idx_min, idx_max);
 
     analyser_alertes(temperatures, nb_releves, &cfg);
     return 0;
