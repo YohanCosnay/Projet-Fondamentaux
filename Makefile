@@ -5,11 +5,11 @@ BUILDDIR = build
 TARGET = $(BUILDDIR)/meteo
 
 CFLAGS += -MMD -MP
-DEPS    = $(OBJS:.o=.d)
--include $(DEPS)
 
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
+DEPS    = $(OBJS:.o=.d)
+-include $(DEPS)
 
 all: $(TARGET)
 
