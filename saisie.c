@@ -50,14 +50,16 @@ void action_saisir(float temperatures[], int *nb_releves){
 			if (scanf("%f", &temperatures[i]) != 1)
     			{
         			printf("Erreur : veuillez saisir un nombre.\n");
+				while (getchar() != '\n');
+				continue;
 			}
         		/* Vide le reste de la ligne */
         		while (getchar() != '\n');
 
+
 			/* Vérifie si la température est hors de la plage autorisée */
 			if (temperatures[i] < TEMP_MIN || temperatures[i] > TEMP_MAX)
 			{
-
 				printf("Valeur hors plage [%.1f ; %.1f]. Ressaisir.\n",TEMP_MIN, TEMP_MAX);
 			}
 
@@ -67,7 +69,7 @@ void action_saisir(float temperatures[], int *nb_releves){
 	        	}
 
 		} while(!saisie_valide);
-s	}
+	}
 }
 
 /*
