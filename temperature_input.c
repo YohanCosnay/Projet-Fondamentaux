@@ -59,12 +59,14 @@ void saisir_releves(float temperatures[], int *nb_releves){
 			}
         	}
     	}
+}
 
-    	/* Affichage de tous les relevés enregistrés */
-    	printf("\n--- Releves enregistres ---\n");
+void afficher_releves(float temperatures[], int nb_releves)
+{
+    printf("\n--- Releves enregistres ---\n");
 
-    	for(int i = 0; i < *nb_releves; i++)
-    	{
-        	printf("Heure %02d : %.1f °C\n", i, temperatures[i]);
-    	}
+    for(int i = 0; i < nb_releves; i++)
+    {
+        printf("Heure %02d : %.1f °C\n", i, temperatures[i]);
+    }
 }
