@@ -51,6 +51,7 @@ void Menu(float *tab, int n, Config *cfg){
             break;
         
         default:
+            choix = 2; // By default, we juste show the stats
             break;
         }
 
