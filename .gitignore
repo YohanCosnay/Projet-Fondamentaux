@@ -1,3 +1,5 @@
 *.o
 Station_meteo
+meteo
 output/
+build/

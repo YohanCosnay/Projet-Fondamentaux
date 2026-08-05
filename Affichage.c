@@ -1,4 +1,4 @@
-#include "Affichage.h"
+#include "affichage.h"
 #include "stats.h"
 
 void Menu(float *tab, int n, Config *cfg){
@@ -29,7 +29,7 @@ void Menu(float *tab, int n, Config *cfg){
         {
         case 1:
             printf("===== Saisir releve =====\n");
-            saisir_releves(tab, &n);
+            action_saisir(tab, &n);
             break;
 
         case 2:
