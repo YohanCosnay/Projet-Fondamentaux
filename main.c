@@ -14,11 +14,20 @@ int main(void) {
     /* Appel de la fonction de saisie */
     saisir_releves(temperatures, &nb_releves);
 
+    afficher_releves(temperatures, nb_releves);
+
+    printf("\n");
+
     // Calcul des stats
     afficher_valeurs_exo2(temperatures, nb_releves);
+
+    printf("\n");
 
     // Affichage des alertes
     Config cfg = {.seuil_chaud = SEUIL_CHAUD, .seuil_froid = SEUIL_FROID, .seuil_amplitude = SEUIL_AMPLITUDE}; // Valeur par defaut
     analyser_alertes(temperatures, nb_releves, &cfg);
+
+    printf("\n");
+
     return 0;
 }

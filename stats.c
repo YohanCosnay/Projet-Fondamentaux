@@ -63,7 +63,7 @@ void afficher_valeurs_exo2(float *tab, int n) {
 
     printf("--- Rapport d'analyse ---\n");
     printf("Moyenne     :  %.1f °C\n", moyenne);
-    printf("Minimum     :  %.1f °C  (heure %02d)\n", min, idx_min);
-    printf("Maximum     :  %.1f °C  (heure %02d)\n", max, idx_max);
+    printf("Minimum     :  %.1f °C\t\t(heure %02d)\n", min, idx_min);
+    printf("Maximum     :  %.1f °C\t\t(heure %02d)\n", max, idx_max);
     printf("Amplitude   :  %.1f °C\n", amplitude);
 }
