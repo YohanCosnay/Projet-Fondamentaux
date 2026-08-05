@@ -10,5 +10,6 @@ typedef struct {
 } Config;
 
 void analyser_alertes(float *tab, int n, Config *cfg);
+void Modifier_seuils_alerte(Config *cfg);
 
 #endif

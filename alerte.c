@@ -31,3 +31,14 @@ void analyser_alertes(float *tab, int n, Config *cfg){
 
     printf("===== Fin du rapport =====\n\n");
 }
+
+void Modifier_seuils_alerte(Config *cfg){
+
+    printf("===== Modification des seuils =====\n\n");
+    printf("\tNouveau seuil haut : ");
+    scanf("%f", cfg->seuil_chaud);
+    printf("\tNouveau seuil bas : ");
+    scanf("%f", cfg->seuil_froid);
+    printf("\tNouveau seuil d'ecart : ");
+    scanf("%f", cfg->seuil_amplitude);
+}
