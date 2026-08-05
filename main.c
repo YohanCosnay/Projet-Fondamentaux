@@ -1,31 +1,30 @@
 #include <stdio.h>
-<<<<<<< HEAD
 #include "temperature_input.h"
+#include "alerte.h"
+#include "exo2.h"
 
-int main(void)
-{
+int main(void) {
     /* Tableau qui stockera les températures */
-    float temperatures[MAX_RELEVES];
+    float temperatures[24] = {2.4, -3.2, 22, 25.2};
 
     /* Nombre de relevés saisis */
-    int nb_releves;
+    int nb_releves = 4;
+    Config cfg = {.seuil_chaud = 35.0, .seuil_froid = 0.0, .seuil_amplitude = 20.0}; // Valeur par defaut
 
     /* Appel de la fonction de saisie */
     saisir_releves(temperatures, &nb_releves);
 
-=======
-#include "alerte.h"
+    // Calcul des stats
+    int idx_min, idx_max;
 
-#define N 4
+    float moyenne = calculer_moyenne(temperatures, nb_releves);
+    float min = trouver_minimum(temperatures, nb_releves, &idx_min);
+    float max = trouver_maximum(temperatures, nb_releves, &idx_max);
+    float amplitude = calculer_amplitude(temperatures, nb_releves);
 
-int main(void){
+    // Affichage des stats
+    afficher_valeurs_exo2(moyenne, min, max, amplitude, idx_min, idx_max);
 
-    float tab[N] = {2.4, -3.2, 22, 25.2 };
-
-    Config cfg = { .seuil_chaud = 35.0, .seuil_froid = 0.0, .seuil_amplitude = 20.0 }; // Valeur par defaut
-
-    analyser_alertes(tab, N, &cfg);
-
->>>>>>> 73788ee12c714b4eeb6e35464ad6eb3b0745f482
+    analyser_alertes(temperatures, nb_releves, &cfg);
     return 0;
 }
