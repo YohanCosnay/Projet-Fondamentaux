@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
-TARGET = programme
+TARGET = Station_meteo
 
-SRCS = main.c alerte.c
+SRCS = main.c alerte.c exo2.c
 OBJS = $(SRCS:.c=.o)
 
 $(TARGET): $(OBJS)
