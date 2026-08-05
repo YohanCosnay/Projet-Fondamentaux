@@ -67,7 +67,7 @@ void action_saisir(float temperatures[], int *nb_releves){
 	        	}
 
 		} while(!saisie_valide);
-	}
+s	}
 }
 
 /*
