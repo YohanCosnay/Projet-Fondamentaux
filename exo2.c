@@ -1,4 +1,5 @@
 #include "exo2.h"
+#include <stdio.h>
 
 float calculer_moyenne(float *tab, int n) {
     float somme = 0.0;
