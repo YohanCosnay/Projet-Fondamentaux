@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -std=c11
 TARGET = Station_meteo
 
 SRCS = main.c alerte.c exo2.c
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
