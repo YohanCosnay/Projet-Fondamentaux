@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "temperature_input.h"
 #include "alerte.h"
-#include "exo2.h"
+#include "stats.h"
 
 int main(void) {
     /* Tableau qui stockera les températures */
