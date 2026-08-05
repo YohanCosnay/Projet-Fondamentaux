@@ -69,10 +69,12 @@ void Afficher_Histo(float *tab, int n){
     printf("===== HISTOGRAMME =====\n");
     float NormalizedValue[n];
 
+    // Remplis un tableau contenant les valeurs de temperature, normaliser entre à et 5
     for(int i = 0; i < n; i++){
         NormalizedValue[i] = ((tab[i] - TEMP_MIN) / (TEMP_MAX - TEMP_MIN)) * HISTO_HAUTEUR;
     }
 
+    // Ecrit le tableau en partant du haut
     for(int i = HISTO_HAUTEUR; i > 0; i--){
         for (int j = 0; j < n; j++)
         {
@@ -81,9 +83,11 @@ void Afficher_Histo(float *tab, int n){
         }
         printf("\n");
     }
+
+    // Indique les heure de chacuns des points
     for (int j = 0; j < n; j++)
     {
-        printf(" %d ", j);
+        printf(" %2d ", j);
     }
     
     printf("\n");
