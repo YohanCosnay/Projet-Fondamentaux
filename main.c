@@ -5,15 +5,12 @@
 #include "stats.h"
 
 int main(void) {
-    /* Tableau qui stockera les températures */
+    /* Tableau qui stockera les températures et nombre de relevés saisis */
     float temperatures[MAX_RELEVES];
-
-    /* Nombre de relevés saisis */
     int nb_releves;
 
-    /* Appel de la fonction de saisie */
+    /* Appel de la fonction de saisie et affichage du résumé */
     saisir_releves(temperatures, &nb_releves);
-
     afficher_releves(temperatures, nb_releves);
 
     printf("\n");
@@ -28,6 +25,8 @@ int main(void) {
     analyser_alertes(temperatures, nb_releves, &cfg);
 
     printf("\n");
+
+    
 
     return 0;
 }
