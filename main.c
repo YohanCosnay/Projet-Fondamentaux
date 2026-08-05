@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "config.h"
-#include "temperature_input.h"
+#include "saisie.h"
 #include "alerte.h"
 #include "stats.h"
 #include "Affichage.h"
 
 int main(void) {
-    /* Tableau qui stockera les températures */
+    /* Tableau qui stockera les températures et nombre de relevés saisis */
     float temperatures[MAX_RELEVES];
 
     /* Nombre de relevés saisis */

@@ -2,7 +2,7 @@
 #define AFFICHAGE_H
 
 #include "alerte.h"
-#include "temperature_input.h"
+#include "saisie.h"
 
 void Menu(float *tab, int n, Config *cfg);
 void Afficher_Histo(float *tab, int n);
