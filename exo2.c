@@ -46,12 +46,10 @@ float calculer_amplitude(float *tab, int n) {
 }
 
 
-void afficher_valeurs_exo2(float moyenne, float min, float max, float amplitude) {
-    int idx_min, idx_max;
-
+void afficher_valeurs_exo2(float moyenne, float min, float max, float amplitude, int idx_min, int idx_max) {
     printf("--- Rapport d'analyse ---\n");
     printf("Moyenne     :  %.1f °C\n", moyenne);
-    printf("Minimum     :  %.1f °C  (heure %02d)\n", min, &idx_min);
-    printf("Maximum     :  %.1f °C  (heure %02d)\n", max, &idx_max);
+    printf("Minimum     :  %.1f °C  (heure %02d)\n", min, idx_min);
+    printf("Maximum     :  %.1f °C  (heure %02d)\n", max, idx_max);
     printf("Amplitude   :  %.1f °C\n", amplitude);
 }
