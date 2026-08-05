@@ -18,7 +18,7 @@ void saisir_releves(float temperatures[], int *nb_releves) {
 	/* Demande le nombre de relevés à l'utilisateur tant que le nombre n'est
 	   pas compris entre 1 et le nombre max de relevés (24)*/
 	do {
-		printf("Nombre de releves (1-%d) : ", MAX_RELEVES);
+		printf("Nombre de releves (1 - %d) : ", MAX_RELEVES);
 
 		if (scanf("%d", nb_releves) != 1) {
 			printf("Erreur : veuillez saisir un nombre.\n");
@@ -49,7 +49,7 @@ void saisir_releves(float temperatures[], int *nb_releves) {
 
 		/* Vérification de la température */
 		while (temperatures[i] < TEMP_MIN || temperatures[i] > TEMP_MAX) {
-			printf("Valeur hors plage [-50.0 ; 60.0]. Ressaisir : ");
+			printf("Valeur hors plage [%.1f ; %.1f]. Ressaisir : ", TEMP_MIN, TEMP_MAX);
 
 			if (scanf("%f", &temperatures[i]) != 1) {
    				printf("Erreur : veuillez saisir un nombre.\n");
