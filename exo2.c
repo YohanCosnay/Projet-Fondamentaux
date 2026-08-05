@@ -1,3 +1,5 @@
+#include "exo2.h"
+
 float calculer_moyenne(float *tab, int n) {
     float somme = 0.0;
 
@@ -37,8 +39,17 @@ float trouver_maximum(float *tab, int n, int *idx) {
 }
 
 float calculer_amplitude(float *tab, int n) {
-    int *idx_min;
-    int *idx_max;
+    int idx_min;
+    int idx_max;
 
-    return trouver_maximum(tab, n, idx_max) - trouver_minimum(tab, n, idx_min);
+    return trouver_maximum(tab, n, &idx_max) - trouver_minimum(tab, n, &idx_min);
+}
+
+
+void afficher_valeurs_exo2(float moyenne, float min, float max, float amplitude) {
+    printf("--- Rapport d'analyse ---\n");
+    printf("Moyenne     :  %.1f °C\n", moyenne);
+    printf("Minimum     :  %.1f °C  (heure %02d)\n", min, idx_min);
+    printf("Maximum     :  %.1f °C  (heure %02d)\n", max, idx_max);
+    printf("Amplitude   :  %.1f °C\n", amplitude);
 }
