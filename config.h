@@ -8,6 +8,11 @@
 #define TEMP_MIN -50.0f
 #define TEMP_MAX 60.0f
 
+/* Config par défaut */
+#define SEUIL_CHAUD 35.0f
+#define SEUIL_FROID 0.0f
+#define SEUIL_AMPLITUDE 20.0f
+
 /* Hauteur maximale de l'histogramme */
 #define HISTO_HAUTEUR 5
 

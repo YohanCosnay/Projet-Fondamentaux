@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "saisie.h"
+#include "config.h"
 
 
 /*
@@ -34,7 +35,7 @@ void action_saisir(float temperatures[], int *nb_releves){
 			printf("Nombres de relevés hors plage (1 - %d)\n", MAX_RELEVES);
 		}
 
-	} while(*nb_releves < 1 || *nb_releves > MAX_RELEVES);
+	} while (*nb_releves < 1 || *nb_releves > MAX_RELEVES);
 
 	/* Boucle permettant de saisir toutes les températures */
 	for( int i=0; i < *nb_releves; i++)
@@ -65,12 +66,11 @@ void action_saisir(float temperatures[], int *nb_releves){
 
 				/* Vide le tampon d'entrée */
     				while(getchar() != '\n');
-    				continue;
+				continue;
 			}
-        	}
-    	}
+	        }
+	}
 }
-
 
 /*
 * Fonction : afficher_releves
