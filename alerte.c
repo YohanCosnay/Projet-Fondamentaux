@@ -1,5 +1,5 @@
 #include "alerte.h"
-#include "exo2.c"
+#include "exo2.h"
 
 
 void analyser_alertes(float *tab, int n, Config *cfg){
