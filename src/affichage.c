@@ -38,7 +38,7 @@ void Menu(float *tab, int n, Config *cfg){
 
         } while (choix < 0 || choix > 5); // Répète tant que le nombre n'est pas valide
 
-        // Nettoie le buffer pour éviter une boucle infinie
+        // Nettoie le buffer pour la saisie automatique des prochain champs
         while (getchar() != '\n');
 
         switch (choix)
