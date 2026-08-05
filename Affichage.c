@@ -3,6 +3,15 @@
 
 void Menu(float *tab, int n, Config *cfg){
 
+    /************************************/
+    /*           Menu principal         */
+    /************************************/
+    /*                                  */
+    /*  Gere l'interface utilisateur    */
+    /*  Appel les fonction appropriees  */
+    /*  aux demandes de l'utilisateur   */
+    /*                                  */
+    /************************************/
     int choix = 1;
 
     do{
@@ -48,6 +57,14 @@ void Menu(float *tab, int n, Config *cfg){
 }
 
 void Afficher_Histo(float *tab, int n){
+
+    /************************************/
+    /*           Histogramme            */
+    /************************************/
+    /*                                  */
+    /*  Genere l'histogramme ASCII      */
+    /*                                  */
+    /************************************/
 
     printf("===== HISTOGRAMME =====\n");
     float NormalizedValue[n];
