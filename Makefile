@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 TARGET = Station_meteo
 
-SRCS = main.c alerte.c stats.c temperature_input.c
+SRCS = main.c alerte.c stats.c temperature_input.c Affichage.c
 OBJS = $(SRCS)
 
 $(TARGET): $(OBJS)
