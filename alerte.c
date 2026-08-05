@@ -5,7 +5,7 @@
 
 void analyser_alertes(float *tab, int n, Config *cfg) {
 
-    int IsFine = 1;
+    int IsFine = 1; // Variable booleenne : passe a 0 (faux) si une alerte se declenche
 
     printf("--- Alertes ---\n");
 
@@ -27,12 +27,13 @@ void analyser_alertes(float *tab, int n, Config *cfg) {
         IsFine = 0;
     }
 
-    if (IsFine) {
+    if (IsFine) { // Aucune alerte de c'est declenche
         printf("Aucune alerte\n");
     }
 }
 
 void Modifier_seuils_alerte(Config *cfg) {
+    
     printf("--- Modification des seuils --- \n\n");
     printf("\tNouveau seuil haut : ");
     scanf("%f", &(cfg->seuil_chaud));
