@@ -1,17 +1,26 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
-TARGET = Station_meteo
+CFLAGS = -Wall -Wextra -std=c11 -Iinclude
+SRCDIR = src
+BUILDDIR = build
+TARGET = $(BUILDDIR)/meteo
 
-SRCS = main.c alerte.c stats.c saisie.c affichage.c
-OBJS = $(SRCS)
+SRCS = $(SRCDIR)/main.c $(SRCDIR)/alerte.c $(SRCDIR)/stats.c $(SRCDIR)/saisie.c $(SRCDIR)/affichage.c
+OBJS = $(SRCS:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)
+
+all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+	$(CC) $(OBJS) -o $@
 
-%.o: %.c
+$(BUILDDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJS) $(TARGET)
+$(BUILDDIR):
+	mkdir -p $@
 
-.PHONY: clean
+clean:
+	rm -f $(BUILDDIR)
+
+re: clean all
+
+.PHONY: all clean re

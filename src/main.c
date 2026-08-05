@@ -3,7 +3,7 @@
 #include "saisie.h"
 #include "alerte.h"
 #include "stats.h"
-#include "Affichage.h"
+#include "affichage.h"
 
 int main(void) {
     /* Tableau qui stockera les températures et nombre de relevés saisis */
