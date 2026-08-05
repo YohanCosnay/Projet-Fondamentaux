@@ -1,4 +1,5 @@
 #include "stats.h"
+#include "config.h"
 #include <stdio.h>
 
 // Fonction pour calculer la moyenne des valeurs dans un tableau
