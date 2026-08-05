@@ -9,7 +9,6 @@ CFLAGS += -MMD -MP
 SRCS = $(wildcard $(SRCDIR)/*.c)
 OBJS = $(patsubst $(SRCDIR)/%.c, $(BUILDDIR)/%.o, $(SRCS))
 DEPS    = $(OBJS:.o=.d)
--include $(DEPS)
 
 all: $(TARGET)
 
@@ -21,6 +20,8 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.c | $(BUILDDIR)
 
 $(BUILDDIR):
 	mkdir -p $@
+
+-include $(DEPS)
 
 clean:
 	rm -rf $(BUILDDIR)
