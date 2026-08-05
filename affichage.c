@@ -15,13 +15,14 @@ void Menu(float *tab, int n, Config *cfg){
     int choix = 1;
 
     do{
-        printf("   ======== MENU ========\n");
-        printf("\t1. Saisir des releves\n");
-        printf("\t2. Afficher les statistiques\n");
-        printf("\t3. Afficher les alertes\n");
-        printf("\t4. Modifier les seuils d'alerte\n");
-        printf("\t5. Afficher l'histogramme\n");
-        printf("\t0. Quitter\n");
+        printf("\t  =========== MENU ===========\n");
+        printf("\t| 1. Saisir des releves\n");
+        printf("\t| 2. Afficher les statistiques\n");
+        printf("\t| 3. Afficher les alertes\n");
+        printf("\t| 4. Modifier les seuils d'alerte\n");
+        printf("\t| 5. Afficher l'histogramme\n");
+        printf("\t| 0. Quitter\n");
+        printf("\t  ============================\n");
         printf("\tChoix : ");
         scanf("%d", &choix);
 
@@ -83,6 +84,14 @@ void Afficher_Histo(float *tab, int n){
         }
         printf("\n");
     }
+
+    // Trace le separateur
+    for (int j = 0; j < n; j++)
+    {
+        printf("---");
+    }
+    
+    printf("\n");
 
     // Indique les heure de chacuns des points
     for (int j = 0; j < n; j++)
