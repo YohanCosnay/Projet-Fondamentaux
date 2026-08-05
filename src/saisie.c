@@ -24,10 +24,10 @@ void action_saisir(float temperatures[], int *nb_releves){
 		if (scanf("%d", nb_releves) != 1)
                 {
                         printf("Erreur : veuillez saisir un nombre.\n");
-                        /* Vide le reste de la ligne */
-                        while (getchar() != '\n');
-                        continue;
-                }
+		}
+
+		/* Vide le reste de la ligne */
+                while (getchar() != '\n');
 
 		/* Vérifie que le nombre de relevés est dans l'intervalle autorisé */
 		if (*nb_releves < 1 || *nb_releves > MAX_RELEVES)
@@ -40,35 +40,35 @@ void action_saisir(float temperatures[], int *nb_releves){
 	/* Boucle permettant de saisir toutes les températures */
 	for( int i=0; i < *nb_releves; i++)
 	{
-
-		/* Demande la température correspondant à l'heure i */
-		printf("Heure %02d : ",i);
-
-		/* Vérifie que l'utilisateur saisit bien un nombre réel */
-		if (scanf("%f", &temperatures[i]) != 1)
-    		{
-        		printf("Erreur : veuillez saisir un nombre.\n");
-
-        		/* Vide le reste de la ligne */
-        		while (getchar() != '\n');
-        		continue;
-    		}
-
-		/* Redemande la température tant qu'elle est hors de la plage autorisée */
-		while(temperatures[i] < TEMP_MIN || temperatures[i] > TEMP_MAX)
+		int saisie_valide = 0;
+		do
 		{
-                	printf("Valeur hors plage [-50.0 ; 60.0]. Ressaisir : ");
+			/* Demande la température correspondant à l'heure i */
+			printf("Heure %02d : ",i);
 
-			/* Vérifie que la nouvelle saisie est un nombre réel */
+			/* Vérifie que l'utilisateur saisit bien un nombre réel */
 			if (scanf("%f", &temperatures[i]) != 1)
-			{
-   				printf("Erreur : veuillez saisir un nombre.\n");
-
-				/* Vide le tampon d'entrée */
-    				while(getchar() != '\n');
+    			{
+        			printf("Erreur : veuillez saisir un nombre.\n");
+				while (getchar() != '\n');
 				continue;
 			}
-	        }
+        		/* Vide le reste de la ligne */
+        		while (getchar() != '\n');
+
+
+			/* Vérifie si la température est hors de la plage autorisée */
+			if (temperatures[i] < TEMP_MIN || temperatures[i] > TEMP_MAX)
+			{
+				printf("Valeur hors plage [%.1f ; %.1f]. Ressaisir.\n",TEMP_MIN, TEMP_MAX);
+			}
+
+			else
+			{
+				saisie_valide = 1;
+	        	}
+
+		} while(!saisie_valide);
 	}
 }
 
