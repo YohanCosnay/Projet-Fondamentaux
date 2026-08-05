@@ -17,7 +17,8 @@ int main(void) {
     // Calcul des stats
     afficher_valeurs_exo2(temperatures, nb_releves);
 
-    Config cfg = {.seuil_chaud = 35.0, .seuil_froid = 0.0, .seuil_amplitude = 20.0}; // Valeur par defaut
+    // Affichage des alertes
+    Config cfg = {.seuil_chaud = SEUIL_CHAUD, .seuil_froid = SEUIL_FROID, .seuil_amplitude = SEUIL_AMPLITUDE}; // Valeur par defaut
     analyser_alertes(temperatures, nb_releves, &cfg);
     return 0;
 }
