@@ -12,7 +12,7 @@ void Menu(float *tab, int n, Config *cfg){
     /*  aux demandes de l'utilisateur   */
     /*                                  */
     /************************************/
-    int choix = 0;
+    int choix = 1;
 
     do{
         printf("\t  =========== MENU ===========\n");
@@ -29,6 +29,7 @@ void Menu(float *tab, int n, Config *cfg){
 
             // Vérifie si l'entrée est un nombre entier
             if (scanf("%d", &choix) != 1) {
+                choix = -1;
                 printf("Erreur : Entree invalide. Réessayez.\n");
                 // Nettoie le buffer pour éviter une boucle infinie
                 while (getchar() != '\n');
