@@ -10,7 +10,7 @@
  *  - temperatures : tableau contenant les températures
  *  - nb_releves   : nombre de relevés saisis
  */
-void action_saisir(float *temperatures, int *nb_releves);
+void action_saisir(float *temperatures, int *nb_releves, Config *cfg);
 
 /*
  * Affiche les relevés de température.

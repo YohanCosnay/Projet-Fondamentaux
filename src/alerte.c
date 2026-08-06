@@ -3,13 +3,13 @@
 #include "stats.h"
 
 
-void analyser_alertes(float *tab, int n, Config *cfg) {
+void analyser_alertes(float *tab, int *n, Config *cfg) {
 
     int IsFine = 1; // Variable booleenne : passe a 0 (faux) si une alerte se declenche
 
     printf("--- Alertes ---\n");
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < *n; i++) {
         if (tab[i] >= cfg->seuil_chaud) {
             printf("Heure %02d: %.1f °C\t\t[CANICULE]\n", i, tab[i]);
             IsFine = 0;
@@ -21,7 +21,7 @@ void analyser_alertes(float *tab, int n, Config *cfg) {
         }
     }
 
-    float amplitude = calculer_amplitude(tab, n);
+    float amplitude = calculer_amplitude(tab, *n);
     if (amplitude > cfg->seuil_amplitude) {
         printf("Amplitude: %.1f °C\t\t[ECART]\n", amplitude);
         IsFine = 0;
@@ -32,7 +32,7 @@ void analyser_alertes(float *tab, int n, Config *cfg) {
     }
 }
 
-void Modifier_seuils_alerte(Config *cfg) {
+void Modifier_seuils_alerte(float *tab, int *n, Config *cfg) {
     
     printf("--- Modification des seuils --- \n\n");
     printf("\tNouveau seuil haut : ");

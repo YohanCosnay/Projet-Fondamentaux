@@ -2,10 +2,10 @@
 **Git :** https://github.com/YohanCosnay/Projet-Fondamentaux.git
 
 **Question 1.1**
-    Pour ce pas s'auto-inclure et evite des problèmes de compilation
+    Pour ne pas s'auto-inclure et évite des problèmes de compilation
 
 **Question 1.2**
-    On obtient de définition multiple des fonctions / variables du fichier inclus
+    On obtient des définitions multiples des fonctions / variables du fichier inclus
 
 **Question 1.3**
     Cela permet de recompiler uniquement les fichiers necessaire (ici seulement alertes.c), donc de compiler plus rapidement.

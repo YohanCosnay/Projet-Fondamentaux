@@ -13,6 +13,13 @@ void Menu(float *tab, int n, Config *cfg){
     /*                                  */
     /************************************/
     int choix = -1;
+    typedef void (*action_t)(float*, int*, Config*);
+    action_t actions[5] = { action_saisir,
+                            afficher_valeurs_exo2,
+                            analyser_alertes,
+                            Modifier_seuils_alerte,
+                            Afficher_Histo
+                        };
 
     do{
         printf("\t  =========== MENU ===========\n");
@@ -41,39 +48,15 @@ void Menu(float *tab, int n, Config *cfg){
         // Nettoie le buffer pour la saisie automatique des prochain champs
         while (getchar() != '\n');
 
-        switch (choix)
-        {
-        case 1:
-            printf("===== Saisir releve =====\n");
-            action_saisir(tab, &n);
-            afficher_releves(tab, n);
-            break;
+        choix--;
 
-        case 2:
-            printf("===== Statistiques =====\n");
-            afficher_valeurs_exo2(tab, n);
-            break;
-
-        case 3:
-            analyser_alertes(tab, n, cfg);
-            break;
-
-        case 4:
-            Modifier_seuils_alerte(cfg);
-            break;
-
-        case 5:
-            Afficher_Histo(tab, n);
-            break;
+        if(choix >= 0)
+            actions[choix](tab, &n, cfg);
         
-        default:
-            break;
-        }
-
-    } while(choix != 0);
+    } while(choix != -1);
 }
 
-void Afficher_Histo(float *tab, int n){
+void Afficher_Histo(float *tab, int *n, Config *cfg){
 
     /************************************/
     /*           Histogramme            */
@@ -84,16 +67,16 @@ void Afficher_Histo(float *tab, int n){
     /************************************/
 
     printf("===== HISTOGRAMME =====\n");
-    float NormalizedValue[n];
+    float NormalizedValue[*n];
 
     // Remplis un tableau contenant les valeurs de temperature, normaliser entre à et 5
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < *n; i++){
         NormalizedValue[i] = ((tab[i] - TEMP_MIN) / (TEMP_MAX - TEMP_MIN)) * HISTO_HAUTEUR;
     }
 
     // Ecrit le tableau en partant du haut
     for(int i = HISTO_HAUTEUR; i > 0; i--){
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < *n; j++)
         {
             if(NormalizedValue[j] > i) printf("  * ");
             else printf("    ");
@@ -102,7 +85,7 @@ void Afficher_Histo(float *tab, int n){
     }
 
     // Trace le separateur
-    for (int j = 0; j < n; j++)
+    for (int j = 0; j < *n; j++)
     {
         printf("----");
     }
@@ -110,7 +93,7 @@ void Afficher_Histo(float *tab, int n){
     printf("\n");
 
     // Indique les heure de chacuns des points
-    for (int j = 0; j < n; j++)
+    for (int j = 0; j < *n; j++)
     {
         printf(" %2d ", j);
     }
