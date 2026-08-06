@@ -13,7 +13,7 @@
 *  - temperatures : tableau contenant les températures saisies
 *  - nb_releves   : pointeur vers le nombre de relevés
 */
-void action_saisir(float temperatures[], int *nb_releves, Config *cfg){
+void action_saisir(float temperatures[], int *nb_releves, Config *cfg){ // Config *cfg n'est jamais utilise. Permet simplement la creation du tableau de fonctions.
 
 	/* Demande le nombre de relevés tant que la valeur est invalide */
 	do
